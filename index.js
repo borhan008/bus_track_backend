@@ -6,7 +6,8 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:3000", "https://your-production-domain.com"], // Add your frontend's URL
+
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -15,7 +16,8 @@ app.use(
 const server = require("http").createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: ["http://localhost:3000", "https://your-production-domain.com"], // Add your frontend's URL
+
     methods: ["GET", "POST"],
     credentials: true,
   },
