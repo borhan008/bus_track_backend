@@ -34,7 +34,7 @@ io.on("connection", (socket) => {
   });
   socket.on("disconnect", () => {
     console.log("User disconnected");
-    socket.broadcast.emit("hello", `disconnected ${socket.id}`);
+    socket.emit("hello", `disconnected ${socket.id}`);
   });
 });
 app.get("/", (req, res) => {
