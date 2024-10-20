@@ -30,11 +30,11 @@ io.on("connection", (socket) => {
   socket.broadcast.emit("hello", `connected ${socket.id}`);
   socket.on("message", (data) => {
     console.log("Message", data);
-    socket.broadcast.emit("message", data);
+    socket.emit("message", data);
   });
   socket.on("disconnect", () => {
     console.log("User disconnected");
-    socket.emit("hello", `disconnected ${socket.id}`);
+    socket.broadcast.emit("hello", `disconnected ${socket.id}`);
   });
 });
 app.get("/", (req, res) => {
